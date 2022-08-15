@@ -1,4 +1,4 @@
-package com.example.bottombar.Fragments
+package com.example.clothingapp.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
