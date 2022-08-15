@@ -1,4 +1,4 @@
-package com.example.bottombar.Fragments
+package com.example.clothingapp.fragments
 
 import android.graphics.Color
 import android.os.Bundle
@@ -9,50 +9,40 @@ import android.widget.ImageView
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.clothingapp.R
+import com.example.clothingapp.products.Product
+import com.example.clothingapp.products.ProductsAdapter
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ProductsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class ProductsFragment : Fragment() {
 
-    lateinit var searchView: SearchView
+    private lateinit var searchView: SearchView
+    private lateinit var adapter: RecyclerView.Adapter<ProductsAdapter.ViewHolder>
+    private  lateinit var recyclerView: RecyclerView
+    private lateinit var layoutManager: RecyclerView.LayoutManager
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_products, container, false)
 
+
+
+        //Search view imp
         searchView = view.findViewById(R.id.sv_products)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                // on below line we are checking
-                // if query exist or not.
-                ///if (programmingLanguagesList.contains(query)) {
-                    // if query exist within list we
-                    // are filtering our list adapter.
-                    ///listAdapter.filter.filter(query)
-                ///} else {
-                    // if query is not present we are displaying
-                    // a toast message as no  data found..
-                    ///Toast.makeText(this@MainActivity, "No Language found..", Toast.LENGTH_LONG) .show()
-                ///}
+
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                // if query text is change in that case we
-                // are filtering our adapter with
-                // new text on below line.
-                ///listAdapter.filter.filter(newText)
+
                 return false
             }
         })
@@ -60,6 +50,23 @@ class ProductsFragment : Fragment() {
         return view
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        recyclerView = view.findViewById<RecyclerView>(R.id.rv_products)
+
+        layoutManager = GridLayoutManager(context, 2)
+        recyclerView.layoutManager = layoutManager
+
+        val products:List<Product> = getProducts()
+        adapter = ProductsAdapter(products)
+        recyclerView.adapter = adapter
+    }
+
+    private fun getProducts(): List<Product> {
+        return listOf(Product(200, "WIDE STRIPE T-SHIRT WITH SLOGAN", "https://static.pullandbear.net/2/photos//2022/V/0/2/p/4245/709/300/4245709300_2_1_8.jpg?t=1645613841633"),
+                Product(500,"JOGGER BERMUDA SHORTS AND T-SHIRT PACK", "https://static.pullandbear.net/2/photos//2022/I/0/2/p/4693/909/710/4693909710_2_1_8.jpg?t=1652087215265"))
+    }
 
 
 }

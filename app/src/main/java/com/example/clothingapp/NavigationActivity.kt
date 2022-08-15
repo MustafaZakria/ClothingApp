@@ -3,9 +3,9 @@ package com.example.clothingapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.bottombar.Fragments.MycartFragment
-import com.example.bottombar.Fragments.ProductsFragment
-import com.example.bottombar.Fragments.ProfileFragment
+import com.example.clothingapp.fragments.MycartFragment
+import com.example.clothingapp.fragments.ProductsFragment
+import com.example.clothingapp.fragments.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class NavigationActivity : AppCompatActivity() {
