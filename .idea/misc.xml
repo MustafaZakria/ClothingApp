@@ -7,13 +7,12 @@
         <entry key="..\:/Android/ClothingApp/app/src/main/res/drawable/ic_person.xml" value="0.1735" />
         <entry key="..\:/Android/ClothingApp/app/src/main/res/layout-v28/fragment_products.xml" value="0.25" />
         <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/activity_main.xml" value="0.209375" />
-        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/activity_navigation.xml" value="0.19123505976095617" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/activity_navigation.xml" value="0.23229166666666667" />
         <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/activity_registeration.xml" value="0.23229166666666667" />
-        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/cart_layout.xml" value="0.264" />
-        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/fragment_mycart.xml" value="0.264" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/cart_layout.xml" value="0.18888888888888888" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/fragment_mycart.xml" value="0.24635416666666668" />
         <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/fragment_products.xml" value="0.24635416666666668" />
-        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/fragment_profile.xml" value="0.24635416666666668" />
-        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/product_layout.xml" value="0.24895833333333334" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="..\:/Android/ClothingApp/app/src/main/res/menu/menu.xml" value="0.24635416666666668" />
       </map>
     </option>
