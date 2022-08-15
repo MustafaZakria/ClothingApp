@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ClothingApp</string>
+    <string name="my_cart">My Cart</string>
+    <string name="profile">Profile</string>
+    <string name="menu">Menu</string>
+    <string name="all_products">All products</string>
+    <string name="filter">Filter</string>
+</resources>
