@@ -5,30 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.clothingapp.R
+import com.example.clothingapp.fragments.mycart.MycartAdapter
+import com.example.clothingapp.products.Product
+import com.example.clothingapp.products.ProductsAdapter
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [MycartFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class MycartFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var adapter: RecyclerView.Adapter<MycartAdapter.ViewHolder>
+    private  lateinit var recyclerView: RecyclerView
+    private lateinit var layoutManager: RecyclerView.LayoutManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,23 +28,28 @@ class MycartFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_mycart, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MycartFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MycartFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        recyclerView = view.findViewById<RecyclerView>(R.id.rv_mycart)
+
+        layoutManager = LinearLayoutManager(view.context)
+        recyclerView.layoutManager = layoutManager
+
+        val products:List<Product> = getProducts()
+        adapter = MycartAdapter(products)
+        recyclerView.adapter = adapter
     }
+
+
+    private fun getProducts(): List<Product> {
+        return listOf(
+                Product(200, "WIDE STRIPE T-SHIRT WITH SLOGAN", "https://static.pullandbear.net/2/photos//2022/V/0/2/p/4245/709/300/4245709300_2_1_8.jpg?t=1645613841633","XL","good material","RED"),
+                Product(200, "WIDE STRIPE T-SHIRT WITH SLOGAN", "https://static.pullandbear.net/2/photos//2022/V/0/2/p/4245/709/300/4245709300_2_1_8.jpg?t=1645613841633","XL","good material","RED"),
+                Product(200, "WIDE STRIPE T-SHIRT WITH SLOGAN", "https://static.pullandbear.net/2/photos//2022/V/0/2/p/4245/709/300/4245709300_2_1_8.jpg?t=1645613841633","XL","good material","RED"),
+                Product(200, "WIDE STRIPE T-SHIRT WITH SLOGAN", "https://static.pullandbear.net/2/photos//2022/V/0/2/p/4245/709/300/4245709300_2_1_8.jpg?t=1645613841633","XL","good material","RED"),
+                Product(500,"JOGGER BERMUDA SHORTS AND T-SHIRT WITH BANDLE", "https://static.pullandbear.net/2/photos//2022/I/0/2/p/4693/909/710/4693909710_2_1_8.jpg?t=1652087215265","XL","good material","RED"))
+    }
+
+
 }

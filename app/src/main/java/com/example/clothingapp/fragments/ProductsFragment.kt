@@ -56,11 +56,11 @@ class ProductsFragment : Fragment() {
         recyclerView = view.findViewById<RecyclerView>(R.id.rv_products)
 
         layoutManager = GridLayoutManager(context, 2)
-        recyclerView?.layoutManager = layoutManager
+        recyclerView.layoutManager = layoutManager
 
         val products:List<Product> = getProducts()
         adapter = ProductsAdapter(products)
-        recyclerView?.adapter = adapter
+        recyclerView.adapter = adapter
     }
 
     private fun getProducts(): List<Product> {

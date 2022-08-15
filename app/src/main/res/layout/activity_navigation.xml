@@ -6,11 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        app:layout_constraintBottom_toTopOf="@id/btm_bar"
-        android:background="#c0c0c0" />
+<!--    <View-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/btm_bar"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        android:background="#c0c0c0" />-->
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btm_bar"
