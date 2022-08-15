@@ -26,8 +26,8 @@ class NavigationActivity : AppCompatActivity() {
         bottomNaviagation.setOnNavigationItemSelectedListener {
             when(it.itemId) {
                 R.id.profile -> replaceFragment(profileFragment)
-                R.id.add_shopping_cart -> replaceFragment(productsFragment)
-                R.id.shopping_cart -> replaceFragment(mycartFragment)
+                R.id.products -> replaceFragment(productsFragment)
+                R.id.my_cart -> replaceFragment(mycartFragment)
             }
             true
         }
