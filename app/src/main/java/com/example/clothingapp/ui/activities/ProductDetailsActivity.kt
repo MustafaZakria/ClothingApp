@@ -1,14 +1,15 @@
-package com.example.clothingapp
+package com.example.clothingapp.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import com.example.clothingapp.R
 
-class Product : AppCompatActivity() {
+class ProductDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_product)
+        setContentView(R.layout.activity_productdetails)
         // get reference to the string array that we just created
         val sizes = resources.getStringArray(R.array.clothes_size)
         // create an array adapter and pass the required parameter

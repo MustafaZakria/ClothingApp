@@ -8,24 +8,14 @@
         <entry key="..\:/Android/ClothingApp/app/src/main/res/layout-v28/fragment_products.xml" value="0.25" />
         <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/activity_main.xml" value="0.209375" />
         <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/activity_navigation.xml" value="0.23229166666666667" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/activity_product.xml" value="0.25" />
         <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/activity_registeration.xml" value="0.2" />
         <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/cart_layout.xml" value="0.18888888888888888" />
         <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/fragment_mycart.xml" value="0.24635416666666668" />
         <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/fragment_products.xml" value="0.24635416666666668" />
         <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/product_layout.xml" value="0.25" />
         <entry key="..\:/Android/ClothingApp/app/src/main/res/menu/menu.xml" value="0.24635416666666668" />
-        <entry key="app/src/main/res/drawable/buttonshape.xml" value="0.1765" />
-        <entry key="app/src/main/res/drawable/buttonshape2.xml" value="0.1765" />
-        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1085" />
-        <entry key="app/src/main/res/drawable/ic_menu.xml" value="0.1085" />
-        <entry key="app/src/main/res/drawable/ic_person.xml" value="0.1085" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/activity_navigation.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_product.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_registeration.xml" value="0.17517940059096665" />
-        <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_products.xml" value="0.1628901239846088" />
-        <entry key="app/src/main/res/mipmap-anydpi-v26/appIcon.xml" value="0.1" />
       </map>
     </option>
   </component>
