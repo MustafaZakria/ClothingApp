@@ -49,6 +49,7 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.13.2'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
 
+
     implementation 'com.maximeroussy.invitrode:invitrode:2.0.2'
 
     implementation "androidx.room:room-runtime:2.4.3"

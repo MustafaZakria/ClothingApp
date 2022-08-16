@@ -1,20 +1,16 @@
-package com.example.clothingapp.fragments
+package com.example.clothingapp.ui.fragments.products
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.clothingapp.R
-import com.example.clothingapp.products.Product
-import com.example.clothingapp.products.ProductsAdapter
+import com.example.clothingapp.ui.dataclasses.Product
+import com.example.clothingapp.ui.adapters.ProductsAdapter
 
 
 
@@ -64,8 +60,10 @@ class ProductsFragment : Fragment() {
     }
 
     private fun getProducts(): List<Product> {
-        return listOf(Product(200, "WIDE STRIPE T-SHIRT WITH SLOGAN", "https://static.pullandbear.net/2/photos//2022/V/0/2/p/4245/709/300/4245709300_2_1_8.jpg?t=1645613841633"),
-                Product(500,"JOGGER BERMUDA SHORTS AND T-SHIRT PACK", "https://static.pullandbear.net/2/photos//2022/I/0/2/p/4693/909/710/4693909710_2_1_8.jpg?t=1652087215265"))
+        return listOf(
+            Product(200, "WIDE STRIPE T-SHIRT WITH SLOGAN", "https://static.pullandbear.net/2/photos//2022/V/0/2/p/4245/709/300/4245709300_2_1_8.jpg?t=1645613841633"),
+                Product(500,"JOGGER BERMUDA SHORTS AND T-SHIRT PACK", "https://static.pullandbear.net/2/photos//2022/I/0/2/p/4693/909/710/4693909710_2_1_8.jpg?t=1652087215265")
+        )
     }
 
 

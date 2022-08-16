@@ -1,4 +1,4 @@
-package com.example.clothingapp.products
+package com.example.clothingapp.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.clothingapp.R
+import com.example.clothingapp.ui.dataclasses.Product
 
 class ProductsAdapter(private val products:List<Product>) : RecyclerView.Adapter<ProductsAdapter.ViewHolder> () {
 
@@ -24,12 +25,12 @@ class ProductsAdapter(private val products:List<Product>) : RecyclerView.Adapter
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.product_layout, parent, false)
         return ViewHolder(v)
     }
 
-    override fun onBindViewHolder(holder: ProductsAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val product = products[position]
 
         holder.itemName.text = product.name
