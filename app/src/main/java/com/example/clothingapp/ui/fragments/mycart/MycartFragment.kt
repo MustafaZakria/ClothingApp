@@ -34,12 +34,12 @@ class MycartFragment : Fragment() {
         layoutManager = LinearLayoutManager(view.context)
         recyclerView.layoutManager = layoutManager
 
-        val products:List<Product> = getProducts()
-        adapter = MycartAdapter(products)
+        val products:List<Product>? = null
+        adapter = MycartAdapter(products!!)
         recyclerView.adapter = adapter
     }
 
-
+/*
     private fun getProducts(): List<Product> {
         return listOf(
                 Product(200, "WIDE STRIPE T-SHIRT WITH SLOGAN", "https://static.pullandbear.net/2/photos//2022/V/0/2/p/4245/709/300/4245709300_2_1_8.jpg?t=1645613841633","XL","good material","RED"),
@@ -49,6 +49,6 @@ class MycartFragment : Fragment() {
                 Product(500,"JOGGER BERMUDA SHORTS AND T-SHIRT WITH BANDLE", "https://static.pullandbear.net/2/photos//2022/I/0/2/p/4693/909/710/4693909710_2_1_8.jpg?t=1652087215265","XL","good material","RED")
         )
     }
-
+*/
 
 }

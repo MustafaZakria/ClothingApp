@@ -1,11 +1,14 @@
 package com.example.clothingapp.ui.fragments.products
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.clothingapp.R
@@ -21,6 +24,10 @@ class ProductsFragment : Fragment() {
     private  lateinit var recyclerView: RecyclerView
     private lateinit var layoutManager: RecyclerView.LayoutManager
 
+    private lateinit var viewModel : ProductsViewModel
+
+    private var products:List<Product>? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,7 +35,7 @@ class ProductsFragment : Fragment() {
         val view =  inflater.inflate(R.layout.fragment_products, container, false)
 
 
-
+/*
         //Search view imp
         searchView = view.findViewById(R.id.sv_products)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -42,28 +49,33 @@ class ProductsFragment : Fragment() {
                 return false
             }
         })
-
+*/
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerView = view.findViewById<RecyclerView>(R.id.rv_products)
+        viewModel = ViewModelProvider(this).get(ProductsViewModel::class.java)
 
-        layoutManager = GridLayoutManager(context, 2)
-        recyclerView.layoutManager = layoutManager
+        viewModel.getAllProducts()
 
-        val products:List<Product> = getProducts()
-        adapter = ProductsAdapter(products)
-        recyclerView.adapter = adapter
-    }
+        viewModel.allProducts.observe(viewLifecycleOwner, Observer {
+            if(it.isNotEmpty())
+            {
+                products= it
+                recyclerView = view.findViewById<RecyclerView>(R.id.rv_products)
 
-    private fun getProducts(): List<Product> {
-        return listOf(
-            Product(200, "WIDE STRIPE T-SHIRT WITH SLOGAN", "https://static.pullandbear.net/2/photos//2022/V/0/2/p/4245/709/300/4245709300_2_1_8.jpg?t=1645613841633"),
-                Product(500,"JOGGER BERMUDA SHORTS AND T-SHIRT PACK", "https://static.pullandbear.net/2/photos//2022/I/0/2/p/4693/909/710/4693909710_2_1_8.jpg?t=1652087215265")
-        )
+                layoutManager = GridLayoutManager(context, 2)
+                recyclerView.layoutManager = layoutManager
+
+                adapter = ProductsAdapter(products!!)
+                recyclerView.adapter = adapter
+            }
+
+        })
+
+
     }
 
 

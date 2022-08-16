@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.clothingapp.R
 import com.example.clothingapp.ui.dataclasses.Product
 
-class ProductsAdapter(private val products:List<Product>) : RecyclerView.Adapter<ProductsAdapter.ViewHolder> () {
+class ProductsAdapter(private val products:List<Product>?) : RecyclerView.Adapter<ProductsAdapter.ViewHolder> () {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val itemName: TextView
@@ -31,15 +31,15 @@ class ProductsAdapter(private val products:List<Product>) : RecyclerView.Adapter
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val product = products[position]
+        val product = products?.get(position)
 
-        holder.itemName.text = product.name
-        holder.itemPrice.text = product.price.toString()
-        Glide.with(holder.itemView).load(product.image).into(holder.itemImage)
+        holder.itemName.text = product?.name
+        holder.itemPrice.text = product?.price.toString()
+        Glide.with(holder.itemView).load(product?.image).into(holder.itemImage)
     }
 
     override fun getItemCount(): Int {
-        return products.size
+        return products?.size ?: 0
     }
 
 }
