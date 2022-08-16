@@ -19,7 +19,7 @@
         <ImageView
             android:id="@+id/iv_product"
             android:layout_width="match_parent"
-            android:layout_height="290dp"
+            android:layout_height="270dp"
             android:scaleType="fitXY"
             android:padding="2dp"
 

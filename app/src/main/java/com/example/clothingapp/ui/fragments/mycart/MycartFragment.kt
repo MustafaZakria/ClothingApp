@@ -52,6 +52,7 @@ class MycartFragment : Fragment() {
         productsViewModel.allProducts.observe(viewLifecycleOwner, Observer {
             if(it.isNotEmpty())
             {
+                Log.d("***", "$it ")
                 val maycartProducts = mycartViewModel.getMycartProducts(it)
                 recyclerView = view.findViewById<RecyclerView>(R.id.rv_mycart)
 
@@ -60,18 +61,22 @@ class MycartFragment : Fragment() {
 
                 adapter = MycartAdapter(maycartProducts)
                 recyclerView.adapter = adapter
+
+                setItemsCount(view)
+                setTotal(view)
             }
 
         })
 
-        setItemsCount(view)
-        setItemsCount(view)
+
 
     }
 
     fun setTotal(view: View) {
+        val total = mycartViewModel.claculateTotal()
+
         tvFooter = view.findViewById(R.id.tv_total_value)
-        tvFooter.text = mycartViewModel.claculateTotal().toString()
+        tvFooter.text = "EGP $total"
     }
 
     fun setItemsCount(view: View) {

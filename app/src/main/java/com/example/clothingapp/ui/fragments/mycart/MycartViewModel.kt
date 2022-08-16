@@ -19,7 +19,7 @@ class MycartViewModel : ViewModel() {
         mycartProducts.clear()
 
         for(product in products) {
-            if(product.isAddedToCart)
+            if(product.addedToCart)
                 mycartProducts.add(product)
         }
 

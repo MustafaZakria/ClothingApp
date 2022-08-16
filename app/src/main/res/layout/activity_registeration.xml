@@ -25,6 +25,7 @@
     </ImageView>
 
     <com.google.android.material.textfield.TextInputLayout
+        app:startIconDrawable="@drawable/ic_username_24"
         android:id="@+id/layout_username"
         android:layout_marginTop="50dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -43,6 +44,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        app:startIconDrawable="@drawable/ic_email_24"
         android:id="@+id/layout_email"
         android:layout_marginTop="10dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -61,6 +63,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        app:startIconDrawable="@drawable/ic_lock_24"
         android:id="@+id/layout_pass"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"

@@ -22,8 +22,8 @@
 
         <ImageView
             android:id="@+id/iv_cart"
-            android:layout_width="140dp"
-            android:layout_height="150dp"
+            android:layout_width="165dp"
+            android:layout_height="195dp"
             android:scaleType="fitXY"
             android:src="@drawable/product"
             app:layout_constraintBottom_toBottomOf="parent"
