@@ -21,12 +21,11 @@ class ProductsFragment : Fragment() {
 
     private lateinit var searchView: SearchView
     private lateinit var adapter: RecyclerView.Adapter<ProductsAdapter.ViewHolder>
-    private  lateinit var recyclerView: RecyclerView
+    private lateinit var recyclerView: RecyclerView
     private lateinit var layoutManager: RecyclerView.LayoutManager
 
     private lateinit var viewModel : ProductsViewModel
 
-    private var products:List<Product>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,13 +62,12 @@ class ProductsFragment : Fragment() {
         viewModel.allProducts.observe(viewLifecycleOwner, Observer {
             if(it.isNotEmpty())
             {
-                products= it
                 recyclerView = view.findViewById<RecyclerView>(R.id.rv_products)
 
                 layoutManager = GridLayoutManager(context, 2)
                 recyclerView.layoutManager = layoutManager
 
-                adapter = ProductsAdapter(products!!)
+                adapter = ProductsAdapter(it)
                 recyclerView.adapter = adapter
             }
 
