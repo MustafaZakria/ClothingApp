@@ -75,6 +75,8 @@
         />
 
 
+
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_register"
         android:background="@drawable/buttonshape2"
@@ -86,9 +88,38 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login"
-        android:textSize="18sp"/>
+        android:textSize="18sp"
+        android:shadowRadius="6"/>
 
+<!--
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:rotationX="4"
+        android:text="@string/login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_pass"
+        android:textAllCaps="false"
+        android:textSize="18sp" />
 
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        style="?attr/materialButtonOutlinedStyle"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:text="@string/register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        />
+-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

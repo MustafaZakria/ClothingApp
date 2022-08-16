@@ -16,8 +16,8 @@ class ProductDetailsActivity : AppCompatActivity() {
         // in our case pass the context, drop down layout , and array.
         val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_item, sizes)
         // get reference to the autocomplete text view
-        val autocompleteTV = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
+        val tvAutocomplete = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
         // set adapter to the autocomplete tv to the arrayAdapter
-        autocompleteTV.setAdapter(arrayAdapter)
+        tvAutocomplete.setAdapter(arrayAdapter)
     }
 }

@@ -1,10 +1,12 @@
 package com.example.clothingapp.ui.fragments.mycart
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -21,12 +23,14 @@ import com.example.clothingapp.ui.fragments.profile.ProfileViewModel
 class MycartFragment : Fragment() {
 
     private lateinit var adapter: RecyclerView.Adapter<MycartAdapter.ViewHolder>
-    private  lateinit var recyclerView: RecyclerView
+    private lateinit var recyclerView: RecyclerView
     private lateinit var layoutManager: RecyclerView.LayoutManager
 
     private lateinit var productsViewModel : ProductsViewModel
     private lateinit var mycartViewModel : MycartViewModel
 
+    private lateinit var tvHeader : TextView
+    private lateinit var tvFooter : TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,7 +53,6 @@ class MycartFragment : Fragment() {
             if(it.isNotEmpty())
             {
                 val maycartProducts = mycartViewModel.getMycartProducts(it)
-
                 recyclerView = view.findViewById<RecyclerView>(R.id.rv_mycart)
 
                 layoutManager = LinearLayoutManager(view.context)
@@ -61,7 +64,21 @@ class MycartFragment : Fragment() {
 
         })
 
+        setItemsCount(view)
+        setItemsCount(view)
+
     }
 
+    fun setTotal(view: View) {
+        tvFooter = view.findViewById(R.id.tv_total_value)
+        tvFooter.text = mycartViewModel.claculateTotal().toString()
+    }
+
+    fun setItemsCount(view: View) {
+        val itemsCount = mycartViewModel.getProductsCount()
+
+        tvHeader = view.findViewById(R.id.tv_header)
+        tvHeader.text = "My Cart ($itemsCount)"
+    }
 
 }

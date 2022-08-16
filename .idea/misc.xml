@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/drawable/buttonshape.xml" value="0.1775" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/drawable/buttonshape2.xml" value="0.1775" />
         <entry key="..\:/Android/ClothingApp/app/src/main/res/drawable/ic_menu.xml" value="0.1765" />
         <entry key="..\:/Android/ClothingApp/app/src/main/res/drawable/ic_person.xml" value="0.1735" />
         <entry key="..\:/Android/ClothingApp/app/src/main/res/layout-v28/fragment_products.xml" value="0.25" />
