@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         val loginLogin = findViewById<Button>(R.id.login_login)
         loginLogin.setOnClickListener {
             //Todo: check validation of user name and password
-            startActivity(Intent(this,NavigationActivity::class.java))
+            startActivity(Intent(this,Product::class.java))
         }
     }
 }
