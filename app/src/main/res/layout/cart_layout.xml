@@ -48,7 +48,6 @@
             android:id="@+id/tv_cart_name"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:text="WIDE STRIPE T-SHIRT WITH "
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@id/iv_cart"
             app:layout_constraintTop_toTopOf="parent"
