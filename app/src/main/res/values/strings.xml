@@ -13,4 +13,13 @@
     <string name="total">Total</string>
     <string name="profile_info">Profile Info</string>
     <string name="email">email</string>
+    <string name="register_register">Register</string>
+    <string name="register_login">Login</string>
+    <string name="select_size">Select size</string>
+    <string-array name="clothes_size">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+        <item>X Large</item>
+    </string-array>
 </resources>
