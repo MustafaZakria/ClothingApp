@@ -21,6 +21,9 @@ interface ClothingAPI {
 
     @GET("api/profile?")
     fun getProfile(@Header("Authorization")  basicToken: String, @Query("email") email: String): Call<User>
+
+    @GET("product/v1/product?")
+    fun getProduct(@Header("Authorization")  basicToken: String, @Query("id") id: Int): Call<Product>
 }
 
 
