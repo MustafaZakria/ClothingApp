@@ -11,12 +11,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val loginBtn = findViewById<Button>(R.id.btn_login)
-
-        loginBtn.setOnClickListener{
-            val intent = Intent(this, NavigationActivity::class.java)
-            startActivity(intent)
+        val loginRegister = findViewById<Button>(R.id.login_register)
+        loginRegister.setOnClickListener {
+            //Todo: check validation of user name and password
+            startActivity(Intent(this,RegisterationActivity::class.java))
+        }
+        val loginLogin = findViewById<Button>(R.id.login_login)
+        loginLogin.setOnClickListener {
+            //Todo: check validation of user name and password
+            startActivity(Intent(this,NavigationActivity::class.java))
         }
     }
 }

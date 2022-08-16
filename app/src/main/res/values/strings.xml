@@ -5,6 +5,11 @@
     <string name="menu">Menu</string>
     <string name="all_products">All products</string>
     <string name="filter">Filter</string>
+    <string name="login">Login</string>
+    <string name="app_icon">appIcon</string>
+    <string name="register">Register</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
     <string name="total">Total</string>
     <string name="profile_info">Profile Info</string>
 </resources>
