@@ -20,7 +20,8 @@
         <entry key="app/src/main/res/drawable/ic_menu.xml" value="0.1085" />
         <entry key="app/src/main/res/drawable/ic_person.xml" value="0.1085" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/activity_registeration.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_navigation.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_registeration.xml" value="0.17517940059096665" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/appIcon.xml" value="0.1" />
       </map>
     </option>
