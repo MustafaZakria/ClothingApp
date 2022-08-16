@@ -1,4 +1,4 @@
-package com.example.clothingapp.fragments
+package com.example.clothingapp.ui.fragments.profile
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

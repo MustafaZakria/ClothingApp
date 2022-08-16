@@ -1,11 +1,12 @@
-package com.example.clothingapp
+package com.example.clothingapp.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.clothingapp.fragments.MycartFragment
-import com.example.clothingapp.fragments.ProductsFragment
-import com.example.clothingapp.fragments.ProfileFragment
+import com.example.clothingapp.R
+import com.example.clothingapp.ui.fragments.mycart.MycartFragment
+import com.example.clothingapp.ui.fragments.products.ProductsFragment
+import com.example.clothingapp.ui.fragments.profile.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class NavigationActivity : AppCompatActivity() {
