@@ -24,17 +24,16 @@ class LoginViewModel : ViewModel() {
                     var token = response.body()?.token.toString()
                     var email = response.body()?.email.toString()
 
-                    //isLoginSuccessful.postValue(true)
                     userInfo.postValue(LoginResponseModel(email, token))
 
                 } else {
                     userInfo.postValue(null)
                 }
             }
-
             override fun onFailure(call: Call<LoginResponseModel>, t: Throwable) {
                 userInfo.postValue(null)
             }
         })
     }
+
 }

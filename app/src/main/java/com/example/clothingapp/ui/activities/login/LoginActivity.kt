@@ -1,14 +1,15 @@
 package com.example.clothingapp.ui.activities.login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.clothingapp.R
+import com.example.clothingapp.network.token
 import com.example.clothingapp.ui.activities.NavigationActivity
 import com.example.clothingapp.ui.activities.registration.RegistrationActivity
 import com.example.clothingapp.ui.dataclasses.UserLoginModel
@@ -40,7 +41,14 @@ class LoginActivity : AppCompatActivity() {
             loginViewModel.userInfo.observe(this, Observer {
                 if (it != null) {
                     //Toast.makeText(this, loginViewModel.token, Toast.LENGTH_LONG).show()
-                    startActivity(Intent(this, NavigationActivity(it)::class.java))
+                    token = it.token
+
+                    val email = it.email
+                    val i = Intent(this@LoginActivity, NavigationActivity::class.java)
+                    i.putExtra("email", email)
+                    startActivity(i)
+
+                    //startActivity(Intent(this, NavigationActivity()::class.java))
                 }
                 else{
                     Toast.makeText(this@LoginActivity, "Wrong username or password", Toast.LENGTH_LONG).show()

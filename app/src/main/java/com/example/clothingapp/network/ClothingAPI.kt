@@ -8,8 +8,9 @@ import retrofit2.http.*
 //https://clothing-store-api-1.herokuapp.com/api/product/v1/all
 
 private const val BASE_URL = "https://clothing-store-api-1.herokuapp.com"
-public const val token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJraGFsaWRtYW1kb3VAZ21haWwuY29tIiwiZXhwIjoxNjYwNzA2OTc0LCJpYXQiOjE2NjA2NzA5NzR9.726CFczSD1xkQUc_oZunN_vAwY3JJRexRWnp1AI387o"
-public const val email = "khalidmamdou@gmail.com"
+public var token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJraGFsaWRtYW1kb3VAZ21haWwuY29tIiwiZXhwIjoxNjYwNzA2OTc0LCJpYXQiOjE2NjA2NzA5NzR9.726CFczSD1xkQUc_oZunN_vAwY3JJRexRWnp1AI387o"
+public var email = "khalidmamdou@gmail.com"
+public var id = 0
 
 interface ClothingAPI {
     @GET("product/v1/all")
