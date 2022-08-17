@@ -12,14 +12,14 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.clothingapp.R
 import com.example.clothingapp.ui.adapters.ProductsAdapter
+import com.example.clothingapp.ui.dataclasses.UserLoginModel
 
 
-class ProductsFragment : Fragment() {
+class ProductsFragment() : Fragment() {
 
     private lateinit var searchView: SearchView
-    private lateinit var adapter: RecyclerView.Adapter<ProductsAdapter.ViewHolder>
+
     private lateinit var recyclerView: RecyclerView
-    private lateinit var layoutManager: RecyclerView.LayoutManager
 
     private lateinit var viewModel : ProductsViewModel
 
@@ -58,11 +58,9 @@ class ProductsFragment : Fragment() {
             {
                 recyclerView = view.findViewById(R.id.rv_products)
 
-                layoutManager = GridLayoutManager(context, 2)
-                recyclerView.layoutManager = layoutManager
+                recyclerView.layoutManager = GridLayoutManager(context, 2)
 
-                adapter = ProductsAdapter(it)
-                recyclerView.adapter = adapter
+                recyclerView.adapter = ProductsAdapter(it)
 
             }
 

@@ -1,4 +1,4 @@
-package com.example.clothingapp.ui.activities.registeration
+package com.example.clothingapp.ui.activities.registration
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,7 +10,9 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class RegistrationViewModel : ViewModel(){
+
     val isRegistrationSuccessful = MutableLiveData<Boolean>()
+
     fun register(user : User){
         retrofit.registerUser(user).enqueue(object : Callback<RegisterResponseModel> {
             override fun onResponse(call: Call<RegisterResponseModel>, response: Response<RegisterResponseModel>) {

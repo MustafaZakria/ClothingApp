@@ -16,15 +16,14 @@ import com.example.clothingapp.R
 import com.example.clothingapp.ui.adapters.MycartAdapter
 import com.example.clothingapp.ui.adapters.ProductsAdapter
 import com.example.clothingapp.ui.dataclasses.Product
+import com.example.clothingapp.ui.dataclasses.UserLoginModel
 import com.example.clothingapp.ui.fragments.products.ProductsViewModel
 import com.example.clothingapp.ui.fragments.profile.ProfileViewModel
 
 
-class MycartFragment : Fragment() {
+class MycartFragment() : Fragment() {
 
-    private lateinit var adapter: RecyclerView.Adapter<MycartAdapter.ViewHolder>
     private lateinit var recyclerView: RecyclerView
-    private lateinit var layoutManager: RecyclerView.LayoutManager
 
     private lateinit var productsViewModel : ProductsViewModel
     private lateinit var mycartViewModel : MycartViewModel
@@ -52,15 +51,12 @@ class MycartFragment : Fragment() {
         productsViewModel.allProducts.observe(viewLifecycleOwner, Observer {
             if(it.isNotEmpty())
             {
-                Log.d("***", "$it ")
                 val maycartProducts = mycartViewModel.getMycartProducts(it)
                 recyclerView = view.findViewById<RecyclerView>(R.id.rv_mycart)
 
-                layoutManager = LinearLayoutManager(view.context)
-                recyclerView.layoutManager = layoutManager
+                recyclerView.layoutManager = LinearLayoutManager(view.context)
 
-                adapter = MycartAdapter(maycartProducts)
-                recyclerView.adapter = adapter
+                recyclerView.adapter = MycartAdapter(maycartProducts)
 
                 setItemsCount(view)
                 setTotal(view)

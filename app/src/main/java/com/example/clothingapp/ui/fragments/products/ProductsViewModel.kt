@@ -17,7 +17,7 @@ class ProductsViewModel : ViewModel(){
     fun getAllProducts(){
 
 
-        retrofit.getAllProducts(token).enqueue(object : Callback<List<Product>> {
+        retrofit.getAllProducts().enqueue(object : Callback<List<Product>> {
 
             override fun onResponse(call: Call<List<Product>>, response: Response<List<Product>>) {
                     allProducts.postValue(response.body())

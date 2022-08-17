@@ -13,7 +13,7 @@ public const val email = "khalidmamdou@gmail.com"
 
 interface ClothingAPI {
     @GET("product/v1/all")
-    fun getAllProducts(@Header("Authorization")  basicToken:String): Call<List<Product>>
+    fun getAllProducts(): Call<List<Product>>
 
     @GET("api/profile?")
     fun getProfile(@Header("Authorization")  basicToken: String, @Query("email") email: String): Call<User>
@@ -25,7 +25,7 @@ interface ClothingAPI {
     fun registerUser(@Body user: User) : Call<RegisterResponseModel>
 
     @POST("/api/auth/login")
-    fun loginUser(@Body userLogin: UserLogin) : Call<LoginResponseModel>
+    fun loginUser(@Body userLoginModel: UserLoginModel) : Call<LoginResponseModel>
 
 }
 

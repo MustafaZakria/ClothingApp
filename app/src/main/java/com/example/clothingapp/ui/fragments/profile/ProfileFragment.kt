@@ -14,11 +14,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.clothingapp.R
 import com.example.clothingapp.network.email
 import com.example.clothingapp.ui.adapters.ProductsAdapter
+import com.example.clothingapp.ui.dataclasses.LoginResponseModel
 import com.example.clothingapp.ui.dataclasses.User
+import com.example.clothingapp.ui.dataclasses.UserLoginModel
 import com.example.clothingapp.ui.fragments.products.ProductsViewModel
 
 
-class ProfileFragment : Fragment() {
+class ProfileFragment(var loginResponseModel: LoginResponseModel) : Fragment() {
 
     private lateinit var viewModel: ProfileViewModel
     private lateinit var tvFisrtName: TextView
@@ -42,7 +44,7 @@ class ProfileFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
 
-        viewModel.getProfile(email)
+        viewModel.getProfile(loginResponseModel)
 
         viewModel.user.observe(viewLifecycleOwner, Observer {
             if(it != null)
