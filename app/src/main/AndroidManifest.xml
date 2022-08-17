@@ -20,16 +20,18 @@
             android:exported="false"
             tools:ignore="Instantiatable" />
         <activity
-            android:name=".ui.activities.registeration.RegistrationActivity"
+            android:name=".ui.activities.registration.RegistrationActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activities.NavigationActivity"
-            android:exported="false" />
+            android:exported="false"
+            tools:ignore="Instantiatable" />
         <activity
-            android:name=".ui.activities.LoginActivity"
+            android:name=".ui.activities.login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

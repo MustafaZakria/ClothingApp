@@ -20,6 +20,7 @@ class ProductDetailsViewModel: ViewModel() {
         retrofit.getProduct(token, id).enqueue(object : Callback<Product> {
 
             override fun onResponse(call: Call<Product>, response: Response<Product>) {
+                Log.d("***", response.message())
                 product.postValue(response.body())
             }
             override fun onFailure(call: Call<Product>, t: Throwable) {

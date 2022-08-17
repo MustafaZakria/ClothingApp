@@ -6,14 +6,20 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 
 //https://clothing-store-api-1.herokuapp.com/api/product/v1/all
+//{
+//    "email": "1@gmail.com",
+//    "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxQGdtYWlsLmNvbSIsImV4cCI6MTY2MDc5ODkyMSwiaWF0IjoxNjYwNzYyOTIxfQ.rkQFLcHPAE6t2JPU3He1YuihqABINm951zqkezb-JLw"
+//}
 
 private const val BASE_URL = "https://clothing-store-api-1.herokuapp.com"
-public const val token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJraGFsaWRtYW1kb3VAZ21haWwuY29tIiwiZXhwIjoxNjYwNzA2OTc0LCJpYXQiOjE2NjA2NzA5NzR9.726CFczSD1xkQUc_oZunN_vAwY3JJRexRWnp1AI387o"
-public const val email = "khalidmamdou@gmail.com"
+public var responseToken = ""
+public var token = "Bearer " + responseToken
+public var email = "khalidmamdou@gmail.com"
+public var id = 0
 
 interface ClothingAPI {
     @GET("product/v1/all")
-    fun getAllProducts(@Header("Authorization")  basicToken:String): Call<List<Product>>
+    fun getAllProducts(): Call<List<Product>>
 
     @GET("api/profile?")
     fun getProfile(@Header("Authorization")  basicToken: String, @Query("email") email: String): Call<User>
@@ -25,7 +31,7 @@ interface ClothingAPI {
     fun registerUser(@Body user: User) : Call<RegisterResponseModel>
 
     @POST("/api/auth/login")
-    fun loginUser(@Body userLogin: UserLogin) : Call<LoginResponseModel>
+    fun loginUser(@Body userLoginModel: UserLoginModel) : Call<LoginResponseModel>
 
 }
 
