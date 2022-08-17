@@ -22,4 +22,10 @@
         <item>Large</item>
         <item>X Large</item>
     </string-array>
+    <string-array name="clothes_color">
+        <item>Black</item>
+        <item>Blue</item>
+        <item>Green</item>
+        <item>Yellow</item>
+    </string-array>
 </resources>

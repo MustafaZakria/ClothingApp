@@ -19,13 +19,13 @@
             android:name=".ui.activities.productDetails.ProductDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activities.RegistrationActivity"
+            android:name=".ui.activities.registeration.RegistrationActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activities.NavigationActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activities.MainActivity"
+            android:name=".ui.activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

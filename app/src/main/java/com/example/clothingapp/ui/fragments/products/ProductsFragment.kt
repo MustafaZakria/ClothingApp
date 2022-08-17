@@ -1,7 +1,6 @@
 package com.example.clothingapp.ui.fragments.products
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,9 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.clothingapp.R
-import com.example.clothingapp.ui.dataclasses.Product
 import com.example.clothingapp.ui.adapters.ProductsAdapter
-
 
 
 class ProductsFragment : Fragment() {
@@ -27,10 +24,7 @@ class ProductsFragment : Fragment() {
     private lateinit var viewModel : ProductsViewModel
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view =  inflater.inflate(R.layout.fragment_products, container, false)
 
 
@@ -62,13 +56,14 @@ class ProductsFragment : Fragment() {
         viewModel.allProducts.observe(viewLifecycleOwner, Observer {
             if(it.isNotEmpty())
             {
-                recyclerView = view.findViewById<RecyclerView>(R.id.rv_products)
+                recyclerView = view.findViewById(R.id.rv_products)
 
                 layoutManager = GridLayoutManager(context, 2)
                 recyclerView.layoutManager = layoutManager
 
                 adapter = ProductsAdapter(it)
                 recyclerView.adapter = adapter
+
             }
 
         })

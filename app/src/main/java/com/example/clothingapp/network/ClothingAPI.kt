@@ -1,13 +1,12 @@
 package com.example.clothingapp.network
+import com.example.clothingapp.ui.dataclasses.LoginResponseModel
 import com.example.clothingapp.ui.dataclasses.Product
+import com.example.clothingapp.ui.dataclasses.RegisterResponseModel
 import com.example.clothingapp.ui.dataclasses.User
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 //https://clothing-store-api-1.herokuapp.com/api/product/v1/all
 
@@ -24,6 +23,13 @@ interface ClothingAPI {
 
     @GET("product/v1/product?")
     fun getProduct(@Header("Authorization")  basicToken: String, @Query("id") id: Int): Call<Product>
+
+    @POST("/api/auth/register")
+    fun registerUser(@Body user: User) : Call<RegisterResponseModel>
+
+    @POST("/api/auth/login")
+    fun loginUser(@Query ("email")email : String , @Query ("password")password : String) : Call<LoginResponseModel>
+
 }
 
 

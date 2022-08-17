@@ -29,6 +29,7 @@ class ProductsAdapter(private val products:List<Product>) : RecyclerView.Adapter
                 val pos: Int = adapterPosition
                 val product = products[pos]
 
+                //itemView.context.startActivity(Intent(itemView.context, ProductDetailsActivity(product.id)::class.java))
                 itemView.context.startActivity(Intent(itemView.context, ProductDetailsActivity(product.id)::class.java))
             }
 
