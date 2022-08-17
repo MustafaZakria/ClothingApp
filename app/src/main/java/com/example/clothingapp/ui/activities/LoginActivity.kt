@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.clothingapp.R
 import com.example.clothingapp.ui.activities.login.LoginViewModel
 import com.example.clothingapp.ui.activities.registeration.RegistrationActivity
+import com.example.clothingapp.ui.dataclasses.UserLogin
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var loginViewModel : LoginViewModel
@@ -28,10 +29,10 @@ class LoginActivity : AppCompatActivity() {
             val password = findViewById<EditText>(R.id.et_password_login).text.toString()
             val email = findViewById<EditText>(R.id.et_email_login).text.toString()
             loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
-            loginViewModel.login(email,password)
+            loginViewModel.login(UserLogin(email,password))
             loginViewModel.isLoginSuccessful.observe(this, Observer {
                 if (it) {
-                    Toast.makeText(this, "Login successful", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, loginViewModel.token, Toast.LENGTH_LONG).show()
                     startActivity(Intent(this, NavigationActivity::class.java))
                 }
                 else{

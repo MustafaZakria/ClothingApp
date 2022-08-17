@@ -1,8 +1,5 @@
 package com.example.clothingapp.network
-import com.example.clothingapp.ui.dataclasses.LoginResponseModel
-import com.example.clothingapp.ui.dataclasses.Product
-import com.example.clothingapp.ui.dataclasses.RegisterResponseModel
-import com.example.clothingapp.ui.dataclasses.User
+import com.example.clothingapp.ui.dataclasses.*
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -28,7 +25,7 @@ interface ClothingAPI {
     fun registerUser(@Body user: User) : Call<RegisterResponseModel>
 
     @POST("/api/auth/login")
-    fun loginUser(@Query ("email")email : String , @Query ("password")password : String) : Call<LoginResponseModel>
+    fun loginUser(@Body userLogin: UserLogin) : Call<LoginResponseModel>
 
 }
 
