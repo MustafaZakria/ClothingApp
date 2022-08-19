@@ -1,17 +1,19 @@
 package com.example.clothingapp.ui.activities.productDetails
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.clothingapp.R
 import com.example.clothingapp.network.id
-import com.example.clothingapp.network.token
-import com.example.clothingapp.ui.activities.NavigationActivity
-import com.example.clothingapp.ui.dataclasses.LoginResponseModel
+import com.example.clothingapp.ui.activities.login.LoginActivity
+import com.example.clothingapp.ui.activities.login.sharedPreferences
+
 
 class ProductDetailsActivity() : AppCompatActivity()  {
 
@@ -23,20 +25,27 @@ class ProductDetailsActivity() : AppCompatActivity()  {
     private lateinit var tvProductPrice: TextView
     private lateinit var tvProductName: TextView
     private lateinit var ivProductImage: ImageView
+    private lateinit var btnAddToCart: Button
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_productdetails)
-//        val btnBack = findViewById<Button>(R.id.btn_back)
-//        btnBack.setOnClickListener {
-//            startActivity(Intent(this, NavigationActivity::class.java))
-//        }
 
+        val backButton = findViewById<View>(R.id.backToMain) as Button
+        backButton.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                finish()
+            }
+        })
 
         tvProductPrice = findViewById(R.id.tv_product_price)
         tvProductName = findViewById(R.id.tv_product_name)
         ivProductImage = findViewById(R.id.iv_product)
+        btnAddToCart = findViewById(R.id.add_to_cart)
+
 
         //size drop down menu
         val sizes = resources.getStringArray(R.array.clothes_size)
@@ -51,17 +60,27 @@ class ProductDetailsActivity() : AppCompatActivity()  {
 
         productDetailsViewModel = ViewModelProvider(this).get(ProductDetailsViewModel::class.java)
 
-        productDetailsViewModel.getProduct(id)
+        val id = productDetailsViewModel.getId(sharedPreferences)
+        val token = productDetailsViewModel.getToken(sharedPreferences)
+
+        productDetailsViewModel.getProduct(id, token)
 
         productDetailsViewModel.product.observe(this, Observer {
             if(it != null)
             {
-                tvProductPrice.text = it.price.toString()
+                tvProductPrice.text = "EGP ${it.price.toString()}"
                 tvProductName.text = it.name
                 Glide.with(this).load(it.image).into(ivProductImage)
             }
 
         })
+
+        btnAddToCart.setOnClickListener {
+            productDetailsViewModel.addProductToCart(id, token)
+        }
+
+
     }
 
 }
+

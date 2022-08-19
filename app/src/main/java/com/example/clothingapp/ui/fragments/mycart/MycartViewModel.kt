@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.clothingapp.network.retrofit
-import com.example.clothingapp.network.token
 import com.example.clothingapp.ui.dataclasses.Product
 import retrofit2.Call
 import retrofit2.Callback

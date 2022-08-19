@@ -1,6 +1,7 @@
 package com.example.clothingapp.ui.activities.login
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -9,16 +10,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.clothingapp.R
-import com.example.clothingapp.network.email
-import com.example.clothingapp.network.responseToken
-import com.example.clothingapp.network.token
 import com.example.clothingapp.ui.activities.NavigationActivity
 import com.example.clothingapp.ui.activities.registration.RegistrationActivity
 import com.example.clothingapp.ui.dataclasses.UserLoginModel
 
+lateinit var sharedPreferences: SharedPreferences
+
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var loginViewModel : LoginViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +27,8 @@ class LoginActivity : AppCompatActivity() {
 
         val btnRegister = findViewById<Button>(R.id.btn_login_register)
         val btnLogin = findViewById<Button>(R.id.btn_login_login)
+
+        sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE)
 
         btnRegister.setOnClickListener {
             startActivity(Intent(this, RegistrationActivity::class.java))
@@ -38,22 +41,22 @@ class LoginActivity : AppCompatActivity() {
 
             loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
-            loginViewModel.login(UserLoginModel(etEmail,etPassword))
+            loginViewModel.login(UserLoginModel(etEmail, etPassword))
+
 
             loginViewModel.userInfo.observe(this, Observer {
                 if (it != null) {
-                    //Toast.makeText(this, loginViewModel.token, Toast.LENGTH_LONG).show()
-                    responseToken =  it.token
-                    email = it.email
-//                    val email = it.email
-//                    val i = Intent(this@LoginActivity, NavigationActivity::class.java)
-//                    i.putExtra("email", email)
-//                    startActivity(i)
+
+                    loginViewModel.saveEmail(it.email, sharedPreferences)
+                    loginViewModel.saveToken(it.token, sharedPreferences)
+
 
                     startActivity(Intent(this, NavigationActivity()::class.java))
+
+
                 }
                 else{
-                    Toast.makeText(this@LoginActivity, "Wrong username or password", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@LoginActivity, "Wrong username or password", Toast.LENGTH_SHORT).show()
                 }
             })
         }

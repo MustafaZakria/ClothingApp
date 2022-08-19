@@ -1,5 +1,11 @@
 package com.example.clothingapp.ui.activities.login
 
+import android.content.Context
+import android.content.SharedPreferences
+import android.provider.ContactsContract.CommonDataKinds.Email
+import android.provider.ContactsContract.CommonDataKinds.Phone
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.clothingapp.network.retrofit
@@ -9,10 +15,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class LoginViewModel : ViewModel() {
 
-    //val isLoginSuccessful = MutableLiveData<Boolean>()
-    val userInfo = MutableLiveData<LoginResponseModel>()
+    val userInfo = MutableLiveData<LoginResponseModel?>()
 
     fun login(userLoginModel: UserLoginModel) {
 
@@ -35,5 +41,20 @@ class LoginViewModel : ViewModel() {
             }
         })
     }
+
+    fun saveEmail(email: String, sharedpreferences: SharedPreferences) {
+        val editor: SharedPreferences.Editor = sharedpreferences.edit()
+
+        editor.putString("email", email)
+        editor.commit()
+    }
+
+    fun saveToken(token: String, sharedpreferences: SharedPreferences) {
+        val editor: SharedPreferences.Editor = sharedpreferences.edit()
+
+        editor.putString("token", token)
+        editor.commit()
+    }
+
 
 }

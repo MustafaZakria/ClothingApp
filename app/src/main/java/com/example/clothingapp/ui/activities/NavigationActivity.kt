@@ -4,8 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.clothingapp.R
-import com.example.clothingapp.network.email
-import com.example.clothingapp.network.token
+
 import com.example.clothingapp.ui.dataclasses.LoginResponseModel
 import com.example.clothingapp.ui.dataclasses.UserLoginModel
 import com.example.clothingapp.ui.fragments.mycart.MycartFragment
@@ -46,14 +45,5 @@ class NavigationActivity() : AppCompatActivity() {
         }
     }
 
-    private fun getLogResponseModel(): LoginResponseModel {
-        val extras = intent.extras
-        lateinit var email:String
-        if (extras != null) {
-            val email = extras.getString("email")
 
-            //The key argument here must match that used in the other activity
-        }
-        return LoginResponseModel(email,token)
-    }
 }

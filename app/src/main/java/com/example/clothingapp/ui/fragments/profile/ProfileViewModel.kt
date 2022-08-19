@@ -1,11 +1,11 @@
 package com.example.clothingapp.ui.fragments.profile
 
+import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.clothingapp.network.retrofit
-import com.example.clothingapp.network.token
 import com.example.clothingapp.ui.dataclasses.LoginResponseModel
 import com.example.clothingapp.ui.dataclasses.Product
 import com.example.clothingapp.ui.dataclasses.User
@@ -34,5 +34,12 @@ class ProfileViewModel: ViewModel() {
         })
     }
 
+    fun getEmail(sharedPreferences: SharedPreferences):String {
+        return sharedPreferences.getString("email", " ").toString()
+    }
 
+    fun getToken(sharedPreferences: SharedPreferences):String {
+        var token = "Bearer ${sharedPreferences.getString("token", " ").toString()}"
+        return token
+    }
 }

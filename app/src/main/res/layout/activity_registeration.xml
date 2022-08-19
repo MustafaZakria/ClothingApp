@@ -12,7 +12,21 @@
     android:paddingRight="40dp"
     android:paddingLeft="40dp"
     >
-
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="180dp"
+        app:layout_constraintLeft_toLeftOf="@id/constraint_layout"
+        app:layout_constraintRight_toRightOf="@id/constraint_layout"
+        app:layout_constraintBottom_toTopOf="@id/layout_username"
+        android:id="@+id/appIcon"
+        android:text="@string/overthesea"
+        android:textSize="34sp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textAllCaps="true"
+        android:fontFamily="@font/figtree"
+        android:paddingTop="75dp"/>
+    <!--
     <ImageView
         android:layout_width="200dp"
         android:layout_height="200dp"
@@ -23,6 +37,7 @@
         app:layout_constraintBottom_toTopOf="@id/layout_username"
         android:contentDescription="@string/app_icon">
     </ImageView>
+    -->
 
     <com.google.android.material.textfield.TextInputLayout
         app:startIconDrawable="@drawable/ic_username_24"

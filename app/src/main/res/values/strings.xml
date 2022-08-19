@@ -16,6 +16,11 @@
     <string name="register_register">Register</string>
     <string name="register_login">Login</string>
     <string name="select_size">Select size</string>
+    <string name="select_color">Select color</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="egp_0_00">EGP 0,00</string>
+    <string name="overthesea">overthesea</string>
+    <string name="log_out">Log out</string>
     <string-array name="clothes_size">
         <item>Small</item>
         <item>Medium</item>

@@ -1,5 +1,7 @@
 package com.example.clothingapp.ui.activities.registration
 
+import android.content.Context
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.clothingapp.network.retrofit
@@ -29,5 +31,26 @@ class RegistrationViewModel : ViewModel(){
             }
         }
         )
+    }
+
+    fun registerValidation(email: String, pass: String, context: Context): Boolean {
+        if(emailValidation(email) && passwordValidation(pass))
+            return true
+        if(!emailValidation(email))
+            Toast.makeText(context, "Invalid email", Toast.LENGTH_SHORT).show()
+        if(!passwordValidation(email))
+            Toast.makeText(context, "Invalid password", Toast.LENGTH_SHORT).show()
+        return false
+    }
+
+    fun emailValidation(email : String): Boolean {
+        val EMAIL_REGEX = "^[A-Za-z](.*)([@]{1})(.{1,})(\\.)(.{1,})";
+        return EMAIL_REGEX.toRegex().matches(email);
+
+    }
+
+    fun passwordValidation(pass: String): Boolean {
+        val passwordPattern = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$"
+        return passwordPattern.toRegex().matches(pass);
     }
 }

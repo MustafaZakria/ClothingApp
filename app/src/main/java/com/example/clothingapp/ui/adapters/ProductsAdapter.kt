@@ -1,6 +1,7 @@
 package com.example.clothingapp.ui.adapters
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.example.clothingapp.R
 import com.example.clothingapp.network.id
 import com.example.clothingapp.ui.activities.NavigationActivity
+import com.example.clothingapp.ui.activities.login.sharedPreferences
 import com.example.clothingapp.ui.activities.productDetails.ProductDetailsActivity
 import com.example.clothingapp.ui.dataclasses.Product
 
@@ -32,7 +34,7 @@ class ProductsAdapter(private val products:List<Product>) : RecyclerView.Adapter
                 val pos: Int = adapterPosition
                 val product = products[pos]
 
-                id = pos
+                saveId(product.id, sharedPreferences)
 
                 //itemView.context.startActivity(Intent(itemView.context, ProductDetailsActivity(product.id)::class.java))
                 itemView.context.startActivity(Intent(itemView.context, ProductDetailsActivity()::class.java))
@@ -50,12 +52,20 @@ class ProductsAdapter(private val products:List<Product>) : RecyclerView.Adapter
         val product = products[position]
 
         holder.itemName.text = product.name
-        holder.itemPrice.text = product.price.toString()
+        holder.itemPrice.text = "EGP ${product.price.toString()}"
         Glide.with(holder.itemView).load(product.image).into(holder.itemImage)
     }
 
     override fun getItemCount(): Int {
         return products.size
     }
+
+    fun saveId(id:Int, sharedpreferences: SharedPreferences) {
+        val editor: SharedPreferences.Editor = sharedpreferences.edit()
+
+        editor.putInt("id", id)
+        editor.commit()
+    }
+
 
 }

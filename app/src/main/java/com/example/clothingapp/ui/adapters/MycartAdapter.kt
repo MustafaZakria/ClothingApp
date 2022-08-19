@@ -40,7 +40,7 @@ class MycartAdapter (private val products:List<Product>) : RecyclerView.Adapter<
         val product = products[position]
 
         holder.itemName.text = product.name
-        holder.itemPrice.text = product.price.toString()
+        holder.itemPrice.text = "EGP ${product.price.toString()}"
         holder.itemSize.text = product.size
         holder.itemColor.text = product.color
         holder.itemDesc.text = product.description

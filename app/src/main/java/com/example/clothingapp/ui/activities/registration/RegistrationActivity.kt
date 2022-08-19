@@ -28,11 +28,14 @@ class RegistrationActivity : AppCompatActivity() {
             val password = findViewById<EditText>(R.id.et_password_register).text.toString()
             val email = findViewById<EditText>(R.id.et_email_register).text.toString()
 
+
             val user = User(userName, email, password)
 
             registrationViewModel = ViewModelProvider(this).get(RegistrationViewModel::class.java)
 
-            registrationViewModel.register(user)
+            if(registrationViewModel.registerValidation(email, password, this@RegistrationActivity)) {
+                registrationViewModel.register(user)
+            }
 
             registrationViewModel.isRegistrationSuccessful.observe(this, Observer {
                 if (it) {

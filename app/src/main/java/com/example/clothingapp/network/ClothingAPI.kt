@@ -12,9 +12,9 @@ import retrofit2.http.*
 //}
 
 private const val BASE_URL = "https://clothing-store-api-1.herokuapp.com"
-public var responseToken = ""
-public var token = "Bearer " + responseToken
-public var email = "khalidmamdou@gmail.com"
+
+//public var token = "Bearer"
+//public var email = "hjh"
 public var id = 0
 
 interface ClothingAPI {
@@ -32,6 +32,9 @@ interface ClothingAPI {
 
     @POST("/api/auth/login")
     fun loginUser(@Body userLoginModel: UserLoginModel) : Call<LoginResponseModel>
+
+    @PUT("/product/v1/addtocart")
+    fun addToCart(@Header("Authorization")  basicToken: String, @Query("id") id: Int): Call<Void>
 
 }
 

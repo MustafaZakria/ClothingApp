@@ -40,7 +40,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/footer"
         app:layout_constraintTop_toBottomOf="@id/header_breaker"
-        android:paddingTop="25dp"
+        android:paddingTop="18dp"
         />
 
 
@@ -85,7 +85,7 @@
             android:id="@+id/tv_total_value"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="EGP 0,00"
+            android:text="@string/egp_0_00"
             android:textColor="@color/black"
             android:textDirection="rtl"
             android:textSize="15sp"
