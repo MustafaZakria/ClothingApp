@@ -39,11 +39,11 @@ class RegistrationActivity : AppCompatActivity() {
 
             registrationViewModel.isRegistrationSuccessful.observe(this, Observer {
                 if (it) {
-                    Toast.makeText(this@RegistrationActivity, "Registration successful", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@RegistrationActivity, "Registration successful", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this, LoginActivity::class.java))
                 }
                 else{
-                    Toast.makeText(this@RegistrationActivity, "Email already exists", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@RegistrationActivity, "Email already exists", Toast.LENGTH_SHORT).show()
                 }
             })
         }
