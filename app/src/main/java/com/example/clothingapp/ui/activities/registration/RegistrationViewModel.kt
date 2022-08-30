@@ -5,7 +5,6 @@ import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.clothingapp.network.retrofit
-import com.example.clothingapp.ui.dataclasses.RegisterResponseModel
 import com.example.clothingapp.ui.dataclasses.User
 import retrofit2.Call
 import retrofit2.Callback
@@ -16,8 +15,8 @@ class RegistrationViewModel : ViewModel(){
     val isRegistrationSuccessful = MutableLiveData<Boolean>()
 
     fun register(user : User){
-        retrofit.registerUser(user).enqueue(object : Callback<RegisterResponseModel> {
-            override fun onResponse(call: Call<RegisterResponseModel>, response: Response<RegisterResponseModel>) {
+        retrofit.registerUser(user).enqueue(object : Callback<Void> {
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
                     isRegistrationSuccessful.postValue(true)
                 }
@@ -26,7 +25,7 @@ class RegistrationViewModel : ViewModel(){
                }
             }
 
-            override fun onFailure(call: Call<RegisterResponseModel>, t: Throwable) {
+            override fun onFailure(call: Call<Void>, t: Throwable) {
                 isRegistrationSuccessful.postValue(false)
             }
         }

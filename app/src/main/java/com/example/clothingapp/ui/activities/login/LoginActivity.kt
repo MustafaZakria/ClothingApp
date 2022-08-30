@@ -13,6 +13,8 @@ import com.example.clothingapp.R
 import com.example.clothingapp.ui.activities.NavigationActivity
 import com.example.clothingapp.ui.activities.registration.RegistrationActivity
 import com.example.clothingapp.ui.dataclasses.UserLoginModel
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 lateinit var sharedPreferences: SharedPreferences
 
@@ -41,8 +43,7 @@ class LoginActivity : AppCompatActivity() {
 
             loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
-            loginViewModel.login(UserLoginModel(etEmail, etPassword))
-
+            loginViewModel.login(UserLoginModel(etEmail, etPassword), this)
 
             loginViewModel.userInfo.observe(this, Observer {
                 if (it != null) {
@@ -50,13 +51,7 @@ class LoginActivity : AppCompatActivity() {
                     loginViewModel.saveEmail(it.email, sharedPreferences)
                     loginViewModel.saveToken(it.token, sharedPreferences)
 
-
                     startActivity(Intent(this, NavigationActivity()::class.java))
-
-
-                }
-                else{
-                    Toast.makeText(this@LoginActivity, "Wrong username or password", Toast.LENGTH_SHORT).show()
                 }
             })
         }

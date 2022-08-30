@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
@@ -19,6 +21,7 @@ import com.example.clothingapp.ui.activities.login.LoginActivity
 import com.example.clothingapp.ui.activities.login.sharedPreferences
 import com.example.clothingapp.ui.adapters.ProductsAdapter
 import com.example.clothingapp.ui.dataclasses.LoginResponseModel
+import com.example.clothingapp.ui.dataclasses.UpdateProfileModel
 import com.example.clothingapp.ui.dataclasses.User
 import com.example.clothingapp.ui.dataclasses.UserLoginModel
 import com.example.clothingapp.ui.fragments.products.ProductsViewModel
@@ -27,10 +30,11 @@ import com.example.clothingapp.ui.fragments.products.ProductsViewModel
 class ProfileFragment() : Fragment() {
 
     private lateinit var viewModel: ProfileViewModel
-    private lateinit var tvFisrtName: TextView
-    private lateinit var tvLastName: TextView
-    private lateinit var tvEmail: TextView
+    private lateinit var etFisrtName: EditText
+    private lateinit var etLastName: EditText
+    private lateinit var etEmail: EditText
     private lateinit var btnLogout: Button
+    private lateinit var btnUpadte: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,29 +47,50 @@ class ProfileFragment() : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //sharedPreferences = getSharedPreferences("sharedPrefs", AppCompatActivity.MODE_PRIVATE)
-
-        tvFisrtName = view.findViewById(R.id.tv_first_name)
-        tvLastName = view.findViewById(R.id.tv_last_name)
-        tvEmail = view.findViewById(R.id.tv_email)
+        etFisrtName = view.findViewById(R.id.et_firstname)
+        etLastName = view.findViewById(R.id.et_lastname)
+        etEmail = view.findViewById(R.id.et_email)
         btnLogout = view.findViewById(R.id.btn_logout)
+        btnUpadte = view.findViewById(R.id.btn_update)
 
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
 
-        viewModel.getProfile(viewModel.getEmail(sharedPreferences), viewModel.getToken(sharedPreferences))
+        val email = viewModel.getEmail(sharedPreferences)
+        val token = viewModel.getToken(sharedPreferences)
+        viewModel.getProfile(token, email)
 
         viewModel.user.observe(viewLifecycleOwner, Observer {
             if(it != null)
             {
                 val nameList = it.fullName.split(" ")
-                tvFisrtName.text = nameList[0]
+                etFisrtName.setText(nameList[0])
 
                 if(nameList.size>1)
-                    tvLastName.text = nameList[1]
-                tvEmail.text = it.email
+                    etLastName.setText(nameList[1])
+                etEmail.setText(it.email)
             }
 
         })
+
+        btnUpadte.setOnClickListener {
+            val firstnameUpdate = etFisrtName.text.toString()
+            val lastnameUpdate = etLastName.text.toString()
+            val emailUpdate = etEmail.text.toString()
+
+            val userUpdate = UpdateProfileModel("$firstnameUpdate $lastnameUpdate", emailUpdate)
+
+            viewModel.updateProfile(token, userUpdate)
+
+            viewModel.isProfileUpdated.observe(viewLifecycleOwner, Observer {
+                if(it) {
+                    Toast.makeText(view.context, "Profile updated successfully", Toast.LENGTH_SHORT).show()
+                }
+                else {
+                    Toast.makeText(view.context, "Updating profile failed", Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
+
 
         btnLogout.setOnClickListener {
             startActivity(Intent(this@ProfileFragment.context, LoginActivity::class.java))

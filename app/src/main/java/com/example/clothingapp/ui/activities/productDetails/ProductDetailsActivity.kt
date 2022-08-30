@@ -10,8 +10,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.clothingapp.R
-import com.example.clothingapp.network.id
-import com.example.clothingapp.ui.activities.login.LoginActivity
 import com.example.clothingapp.ui.activities.login.sharedPreferences
 
 

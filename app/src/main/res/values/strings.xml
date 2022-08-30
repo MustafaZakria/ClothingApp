@@ -12,7 +12,7 @@
     <string name="password">password</string>
     <string name="total">Total</string>
     <string name="profile_info">Profile Info</string>
-    <string name="email">email</string>
+    <string name="email">Email</string>
     <string name="register_register">Register</string>
     <string name="register_login">Login</string>
     <string name="select_size">Select size</string>
@@ -21,6 +21,9 @@
     <string name="egp_0_00">EGP 0,00</string>
     <string name="overthesea">overthesea</string>
     <string name="log_out">Log out</string>
+    <string name="firstname">First Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="update_profile">Update Profile</string>
     <string-array name="clothes_size">
         <item>Small</item>
         <item>Medium</item>

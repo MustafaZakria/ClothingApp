@@ -5,17 +5,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 
-//https://clothing-store-api-1.herokuapp.com/api/product/v1/all
-//{
-//    "email": "1@gmail.com",
-//    "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxQGdtYWlsLmNvbSIsImV4cCI6MTY2MDc5ODkyMSwiaWF0IjoxNjYwNzYyOTIxfQ.rkQFLcHPAE6t2JPU3He1YuihqABINm951zqkezb-JLw"
-//}
-
 private const val BASE_URL = "https://clothing-store-api-1.herokuapp.com"
 
-//public var token = "Bearer"
-//public var email = "hjh"
-public var id = 0
 
 interface ClothingAPI {
     @GET("product/v1/all")
@@ -28,13 +19,17 @@ interface ClothingAPI {
     fun getProduct(@Header("Authorization")  basicToken: String, @Query("id") id: Int): Call<Product>
 
     @POST("/api/auth/register")
-    fun registerUser(@Body user: User) : Call<RegisterResponseModel>
+    fun registerUser(@Body user: User) : Call<Void>
 
     @POST("/api/auth/login")
     fun loginUser(@Body userLoginModel: UserLoginModel) : Call<LoginResponseModel>
 
-    @PUT("/product/v1/addtocart")
+    @PUT("/product/v1/addtocart?")
     fun addToCart(@Header("Authorization")  basicToken: String, @Query("id") id: Int): Call<Void>
+
+    @PUT("api/profile")
+    fun updateProfile(@Header("Authorization")  basicToken: String, @Body user: UpdateProfileModel): Call<Void>
+
 
 }
 

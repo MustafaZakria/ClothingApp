@@ -20,7 +20,8 @@ class LoginViewModel : ViewModel() {
 
     val userInfo = MutableLiveData<LoginResponseModel?>()
 
-    fun login(userLoginModel: UserLoginModel) {
+
+    fun login(userLoginModel: UserLoginModel, mContext: Context){
 
         retrofit.loginUser(userLoginModel).enqueue(object : Callback<LoginResponseModel> {
 
@@ -32,12 +33,14 @@ class LoginViewModel : ViewModel() {
 
                     userInfo.postValue(LoginResponseModel(email, token))
 
+
                 } else {
-                    userInfo.postValue(null)
+                    //userInfo.postValue(LoginResponseModel("", ""))
+                    Toast.makeText(mContext, "Wrong username or password", Toast.LENGTH_SHORT).show()
                 }
             }
             override fun onFailure(call: Call<LoginResponseModel>, t: Throwable) {
-                userInfo.postValue(null)
+                //userInfo.postValue(null)
             }
         })
     }

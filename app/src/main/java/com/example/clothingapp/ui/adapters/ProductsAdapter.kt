@@ -11,8 +11,6 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.clothingapp.R
-import com.example.clothingapp.network.id
-import com.example.clothingapp.ui.activities.NavigationActivity
 import com.example.clothingapp.ui.activities.login.sharedPreferences
 import com.example.clothingapp.ui.activities.productDetails.ProductDetailsActivity
 import com.example.clothingapp.ui.dataclasses.Product

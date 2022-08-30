@@ -3,23 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android/ClothingApp/app/src/main/res/drawable/buttonshape.xml" value="0.1775" />
-        <entry key="..\:/Android/ClothingApp/app/src/main/res/drawable/buttonshape2.xml" value="0.1775" />
-        <entry key="..\:/Android/ClothingApp/app/src/main/res/drawable/ic_menu.xml" value="0.1765" />
-        <entry key="..\:/Android/ClothingApp/app/src/main/res/drawable/ic_person.xml" value="0.1735" />
-        <entry key="..\:/Android/ClothingApp/app/src/main/res/drawable/ic_username_24.xml" value="0.2275" />
-        <entry key="..\:/Android/ClothingApp/app/src/main/res/drawable/textview_border.xml" value="0.118" />
-        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout-v28/fragment_products.xml" value="0.25" />
-        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/activity_main.xml" value="0.209375" />
-        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/activity_navigation.xml" value="0.23229166666666667" />
-        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/activity_product.xml" value="0.25" />
-        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/activity_registeration.xml" value="0.2" />
-        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/cart_layout.xml" value="0.18888888888888888" />
-        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/fragment_mycart.xml" value="0.24635416666666668" />
-        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/fragment_products.xml" value="0.24635416666666668" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/drawable/buttonShape3.xml" value="0.1095" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/drawable/buttonshape.xml" value="0.136" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/drawable/buttonshape2.xml" value="0.136" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/drawable/buttonshape3.xml" value="0.1" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/drawable/ic_person.xml" value="0.161" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/drawable/ic_shop.xml" value="0.1025" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/drawable/ic_shopping_cart.xml" value="0.1555" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/drawable/ic_username_24.xml" value="0.1555" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/drawable/textview_border.xml" value="0.161" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/activity_productdetails.xml" value="0.16" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/cart_layout.xml" value="0.25" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/dropdown_item.xml" value="0.25" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/fragment_mycart.xml" value="0.25" />
+        <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/fragment_products.xml" value="0.25" />
         <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/Android/ClothingApp/app/src/main/res/layout/product_layout.xml" value="0.25" />
-        <entry key="..\:/Android/ClothingApp/app/src/main/res/menu/menu.xml" value="0.24635416666666668" />
       </map>
     </option>
   </component>
